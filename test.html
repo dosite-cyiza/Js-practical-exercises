@@ -1,29 +1,32 @@
+<!--
+Write a JavaScript program to remove the selected items from a drop-down list.
+
+-->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JS Page Load Events</title>
+<meta charset=utf-8 />
+<title>Remove items from a dropdown list</title>
 </head>
-
 <body>
-    <script>
-        addEventListener('DOMContentLoaded', (event) => {
-            console.log('The DOM is fully loaded.');
-        });
+<form>
+	<select id="colorSelect">
+		<option>Red</option>
+		<option>Green</option>
+		<option>White</option>
+		<option>Black</option>
+		<option>Black</option>
+	</select>
+	<input type="button" onclick="removecolor()" value="Select and Remove">
+</form>
+<script>
+function removecolor(){
+    const selection = document.getElementById("colorSelect")
+    const index = selection.selectedIndex;
+      selection.remove(index);
+    console.log(selection);
+}
 
-        addEventListener('load', (event) => {
-            console.log('The page is fully loaded.');
-        });
-
-        addEventListener('beforeunload', (event) => {
-            // show the confirmation dialog
-            event.preventDefault();
-            // Google Chrome requires returnValue to be set.
-            event.returnValue = '';
-        });
-
-        addEventListener('unload', (event) => {
-            // send analytic data
-        });
-    </script>
+</script>
 </body>
 </html>
